@@ -1,1 +1,30 @@
-@import "tailwindcss"
+/* CSS for scroll bar costumization */
+ ::-webkit-scrollbar {
+   width: 8px;
+ }
+
+ ::-webkit-scrollbar-track {
+   background: #1f1f1f;
+   border-radius: 4px;
+ }
+
+ ::-webkit-scrollbar-thumb {
+   background: linear-gradient(180deg, #5c5c5c, #ffffff);
+   border-radius: 4px;
+ }
+
+ ::-webkit-scrollbar-thumb:hover {
+   background: linear-gradient(180deg, #d3d3d6, #5c5c5c);
+ }
+
+ .scrollbar-hidden::-webkit-scrollbar {
+   display: none;
+ }
+
+ .scrollbar-hidden {
+   -ms-overflow-style: none;
+   scrollbar-width: none;
+ }
+
+
+ @import "tailwindcss"

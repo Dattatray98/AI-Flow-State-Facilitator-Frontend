@@ -4,9 +4,9 @@ import Paragraph from "../components/paragraph"
 
 const Home = () => {
     return (
-        <div className="">
+        <div className="bg-gray-100">
             <Navbar />
-            <div className="w-full flex">
+            <div className="w-full flex p-5">
             <Paragraph />
             <FocusAnalyze />
             </div>
