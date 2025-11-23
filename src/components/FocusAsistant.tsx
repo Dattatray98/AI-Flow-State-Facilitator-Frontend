@@ -7,7 +7,7 @@ interface Message {
     sender: "user" | "attenza";
 }
 
-const FocusAsistant = () => {
+const FocusAsistant: React.FC<any> = (Assistant) => {
     const [prompt, setPrompt] = useState("");
     const [message, setMessage] = useState<Message[]>([]);
     const [isTypeing, setIsTyping] = useState(false);
@@ -34,7 +34,10 @@ const FocusAsistant = () => {
         setIsTyping(true);
 
         try {
-            const response = await axios.post("http://localhost:8000/api/attenza", { prompt: prompt })
+
+            console.log(Assistant.Assistant)
+            const assitant = Assistant.Assistant
+            const response = await axios.post(`http://localhost:8000/api/attenza/${assitant}`, { prompt: prompt })
             const aiMessage: Message = {
                 id: (Date.now() + 1).toString(),
                 text: response.data.response,
@@ -63,7 +66,7 @@ const FocusAsistant = () => {
     return (
         <div className="h-full w-full border border-gray-200 shadow-sm rounded-xl relative bg-blue-50 flex flex-col">
             {/* Message container */}
-            <div className="flex-1 overflow-y-auto space-y-2 p-5 ">
+            <div className="flex-1 overflow-y-auto scrollbar-hidden space-y-2 p-5 ">
                 {message.map((msg) => (
                     <div
                         key={msg.id}
@@ -99,7 +102,7 @@ const FocusAsistant = () => {
                 <div className="border border-gray-300 shadow-sm h-10 w-[75%] rounded-xl">
                     <input
                         type="text"
-                        className="flex-1 outline-none rounded-lg px-3 py-2 h-full w-full"
+                        className="flex-1 outline-none font-medium rounded-lg px-3 py-2 h-full w-full"
                         placeholder="Type message..."
                         value={prompt}
                         onChange={handleChange}

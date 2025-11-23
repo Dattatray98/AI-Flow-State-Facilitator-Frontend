@@ -1,4 +1,6 @@
-export const data = [
+import type { ParagraphProps } from "../types/ContentContainer.type";
+
+export const data: ParagraphProps[] = [
     {
         "id": 1,
         "subject": "Computer Science",

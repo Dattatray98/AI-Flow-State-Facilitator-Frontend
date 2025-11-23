@@ -1,12 +1,12 @@
 import FocusAnalyze from "../components/FocusAnalyze"
 import Navbar from "../components/Navbar"
-import Paragraph from "../components/paragraph"
+import Paragraph from "../components/ContentContainer"
 
 const Home = () => {
     return (
-        <div className="bg-gray-100">
+        <div className="bg-gray-200">
             <Navbar />
-            <div className="w-full flex p-5">
+            <div className="w-full flex py-5">
             <Paragraph />
             <FocusAnalyze />
             </div>
